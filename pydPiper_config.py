@@ -31,6 +31,8 @@ DISPLAY_PINS_DATA = [ DISPLAY_PIN_D4, DISPLAY_PIN_D5, DISPLAY_PIN_D6, DISPLAY_PI
 i2c_address = safeget(config,'DISPLAY', 'display_i2c_address','0')
 DISPLAY_I2C_ADDRESS = int(i2c_address) if i2c_address and 'x' not in i2c_address else int(i2c_address,16)
 DISPLAY_I2C_PORT = int(safeget(config,'DISPLAY', 'display_i2c_port',0))
+DISPLAY_SPI_PORT = int(safeget(config,'DISPLAY', 'display_spi_port',0))
+DISPLAY_SPI_ADDR = int(safeget(config,'DISPLAY', 'display_spi_addr',0))
 DISPLAY_ENABLE_DURATION = float(safeget(config,'DISPLAY', 'display_enable_duration',0)) # in microseconds.  Decrease to increase performance.  Increase to improve display stability
 
 # Page Parameters

@@ -629,6 +629,8 @@ if __name__ == u'__main__':
     cols = pydPiper_config.DISPLAY_WIDTH
     i2c_address = pydPiper_config.DISPLAY_I2C_ADDRESS
     i2c_port = pydPiper_config.DISPLAY_I2C_PORT
+    spi_port = pydPiper_config.DISPLAY_SPI_PORT
+    spi_addr = pydPiper_config.DISPLAY_SPI_ADDR
     enable = pydPiper_config.DISPLAY_ENABLE_DURATION
     driver = pydPiper_config.DISPLAY_DRIVER
     pagefile = pydPiper_config.PAGEFILE
@@ -659,6 +661,8 @@ if __name__ == u'__main__':
             i2c_address = int(arg,0)
         elif opt in ("--i2cport"):
             i2c_port = int(arg,0)
+        elif opt in ("--spiport"):
+            spi_port = int(arg,0)
         elif opt in ("--width"):
             cols = int(arg,0)
         elif opt in ("--height"):
@@ -739,6 +743,8 @@ if __name__ == u'__main__':
         lcd = displays.hd44780_i2c.hd44780_i2c(rows, cols, i2c_address, i2c_port, enable)
     elif driver == u"hd44780_mcp23008":
         lcd = displays.hd44780_i2c.hd44780_mcp23008(rows, cols, i2c_address, i2c_port, enable)
+    elif driver == u"hd44780_spi":
+        lcd = displays.hd44780_i2c.hd44780_spi(rows, cols, spi_port, spi_addr, enable)
     elif driver == u"ssd1306_i2c":
         lcd = displays.ssd1306_i2c.ssd1306_i2c(rows, cols, i2c_address, i2c_port)
     elif driver == u"luma_i2c":
